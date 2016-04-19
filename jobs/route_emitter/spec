@@ -1,6 +1,10 @@
 ---
 name: route_emitter
 
+consumes:
+- name: nats
+  type: nats
+
 templates:
   route_emitter_ctl.erb: bin/route_emitter_ctl
   bbs_ca.crt.erb: config/certs/bbs/ca.crt

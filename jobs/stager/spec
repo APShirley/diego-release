@@ -1,6 +1,10 @@
 ---
 name: stager
 
+consumes:
+  - name: cc
+    type: cc
+
 templates:
   stager_ctl.erb: bin/stager_ctl
   bbs_ca.crt.erb: config/certs/bbs/ca.crt
@@ -43,17 +47,6 @@ properties:
   diego.stager.staging_task_callback_url:
     description: URL for staging task callbacks
     default: "http://stager.service.cf.internal:8888"
-  diego.stager.cc.external_port:
-    description: "External port to access the Cloud Controller"
-    default: 9022
-  diego.stager.cc.basic_auth_username:
-    description: "Basic auth username for CC internal API"
-    default: "internal_user"
-  diego.stager.cc.basic_auth_password:
-    description: "Basic auth password for CC internal API"
-  diego.stager.cc.internal_service_hostname:
-    description: "Internal CC host name"
-    default: cloud-controller-ng.service.cf.internal
   diego.stager.lifecycle_bundles:
     description: "List of lifecycle bundles arguments for different stacks in form 'lifecycle-name:path/to/bundle'"
     default:
